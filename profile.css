@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ff4db8, #ff775d);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 550px;
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+
+.profile-img {
+    position: absolute;
+    top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-img img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+.left-btn, .right-btn {
+    color: #ff5b8f;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.name {
+    font-size: 26px;
+    margin-top: 60px;
+    color: #444;
+}
+
+.location {
+    color: #888;
+    margin: 10px 0 15px;
+}
+
+.bio {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.stats h3 {
+    font-size: 22px;
+    color: #444;
+}
+
+.stats p {
+    color: #888;
+    font-size: 14px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff4db8, #ff775d);
+    border: none;
+    color: #fff;
+    padding: 12px 35px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+.btn:hover {
+    opacity: 0.9;
+}
