@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Gallery</title>
+
+<style>
+    body{
+        margin: 0;
+        background: linear-gradient(120deg, #357ABD, #51A9E8);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .gallery{
+        width: 750px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        overflow: hidden;
+    }
+
+    .gallery div{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .gallery img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s ease;
+    }
+
+    .gallery div:hover img{
+        transform: scale(1.1);
+    }
+
+    /* Yellow box */
+    .text-box{
+        background: #F2C94C;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    /* Mobile Responsive */
+    @media(max-width: 600px){
+        .gallery{
+            width: 95%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery div{
+            height: 160px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="gallery">
+
+    <div><img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d" alt=""></div>
+    <div><img src="1000191924.jpg" alt=""></div>
+    <div><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt=""></div>
+
+    <div><img src="1000230686.jpg" alt=""></div>
+    <div><img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126" alt=""></div>
+
+    <div class="text-box">Grid Gallery</div>
+
+</div>
+
+</body>
+</html>
