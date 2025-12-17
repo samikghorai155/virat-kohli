@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dark Portfolio</title>
+<style>
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial;
+    margin:0;
+}
+header{
+    padding:20px;
+    text-align:center;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+.project{
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:10px;
+    transition:0.4s;
+}
+.project:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(0,255,200,0.6);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>My Projects</h1>
+</header>
+
+<section class="grid">
+    <div class="project">Project One</div>
+    <div class="project">Project Two</div>
+    <div class="project">Project Three</div>
+    <div class="project">Project Four</div>
+</section>
+
+</body>
+</html>
