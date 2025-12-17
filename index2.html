@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated Login</title>
+<style>
+body{
+    margin:0;
+    background:#0f0f0f;
+    font-family:sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+form{
+    background:#1a1a1a;
+    padding:40px;
+    border-radius:10px;
+    width:320px;
+    position:relative;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:15px 0;
+    background:none;
+    border:1px solid #444;
+    color:white;
+}
+input:focus{
+    outline:none;
+    border-color:#00ffcc;
+}
+button{
+    width:100%;
+    padding:10px;
+    background:#00ffcc;
+    border:none;
+    cursor:pointer;
+}
+form::before{
+    content:'';
+    position:absolute;
+    inset:-2px;
+    background:linear-gradient(45deg,#00ffcc,#ff00ff,#00ffcc);
+    z-index:-1;
+    animation:rotate 5s linear infinite;
+}
+@keyframes rotate{
+    to{transform:rotate(360deg);}
+}
+</style>
+</head>
+<body>
+
+<form>
+    <h2>Secure Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+</form>
+
+</body>
+</html>
