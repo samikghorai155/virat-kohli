@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hard CSS Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ================= VARIABLES ================= */
+:root{
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #222;
+  --accent: linear-gradient(135deg,#667eea,#764ba2);
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= GRID LAYOUT ================= */
+.dashboard{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  grid-template-rows:70px 1fr 50px;
+  height:100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  grid-row:1/4;
+  background:#111827;
+  color:white;
+  padding:20px;
+  position:fixed;
+  width:260px;
+  height:100%;
+}
+
+.sidebar h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.sidebar a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  color:#cbd5e1;
+  text-decoration:none;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.sidebar a:hover{
+  background:var(--accent);
+  color:white;
+  transform:translateX(6px);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  grid-column:2;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 25px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.navbar input{
+  padding:10px;
+  width:220px;
+  border-radius:20px;
+  border:1px solid #ddd;
+}
+
+/* ================= MAIN ================= */
+.main{
+  grid-column:2;
+  padding:25px;
+  animation:fade 1s ease;
+}
+
+/* ================= CARDS ================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--accent);
+  opacity:0;
+  transition:.4s;
+}
+
+.card:hover::before{opacity:.15;}
+.card:hover{transform:translateY(-8px);}
+
+.card i{
+  font-size:32px;
+  margin-bottom:10px;
+  color:#667eea;
+}
+
+/* ================= TABLE ================= */
+table{
+  width:100%;
+  margin-top:30px;
+  border-collapse:collapse;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+th,td{
+  padding:15px;
+  text-align:left;
+}
+
+th{
+  background:#1f2933;
+  color:white;
+}
+
+tr:nth-child(even){background:#f1f5f9;}
+tr:hover{background:#e0e7ff;}
+
+.status{
+  padding:6px 14px;
+  border-radius:20px;
+  color:white;
+  font-size:13px;
+}
+
+.active{background:green;}
+.pending{background:orange;}
+.blocked{background:red;}
+
+/* ================= FOOTER ================= */
+.footer{
+  grid-column:2;
+  text-align:center;
+  background:#111827;
+  color:white;
+  padding:12px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .dashboard{
+    grid-template-columns:1fr;
+  }
+  .sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>ADMIN</h2>
+    <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fa fa-user"></i> Users</a>
+    <a href="#"><i class="fa fa-chart-line"></i> Analytics</a>
+    <a href="#"><i class="fa fa-gear"></i> Settings</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <input type="text" placeholder="Search...">
+    <i class="fa fa-bell"></i>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="cards">
+      <div class="card"><i class="fa fa-users"></i><h3>Users</h3><p>1,245</p></div>
+      <div class="card"><i class="fa fa-dollar-sign"></i><h3>Revenue</h3><p>$9,850</p></div>
+      <div class="card"><i class="fa fa-cart-shopping"></i><h3>Orders</h3><p>560</p></div>
+      <div class="card"><i class="fa fa-chart-pie"></i><h3>Growth</h3><p>28%</p></div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Name</th><th>Status</th><th>Role</th>
+      </tr>
+      <tr>
+        <td>Rahul</td><td><span class="status active">Active</span></td><td>Admin</td>
+      </tr>
+      <tr>
+        <td>Priya</td><td><span class="status pending">Pending</span></td><td>User</td>
+      </tr>
+      <tr>
+        <td>Amit</td><td><span class="status blocked">Blocked</span></td><td>User</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2025 Hard CSS Dashboard
+  </div>
+
+</div>
+
+</body>
+</html>
